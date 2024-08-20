@@ -1,0 +1,143 @@
+[gd_scene load_steps=13 format=3 uid="uid://b54ujb8btwq51"]
+
+[ext_resource type="PackedScene" uid="uid://b0644auj3ootj" path="res://actors/actor.tscn" id="1_ht62t"]
+[ext_resource type="Script" path="res://actors/player.gd" id="2_otrhr"]
+[ext_resource type="Texture2D" uid="uid://df8me58ybr0qk" path="res://common/kenney_pixel-platformer/tilemaps/tilemap-characters_packed.png" id="3_47ip2"]
+[ext_resource type="Texture2D" uid="uid://cf5cqmng3nei3" path="res://common/kenney_pixel-platformer/tilemaps/circle-xxl.png" id="4_swojd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ytylj"]
+size = Vector2(18, 18)
+
+[sub_resource type="Animation" id="Animation_1aof2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_511nw"]
+resource_name = "aerial"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+
+[sub_resource type="Animation" id="Animation_dejmn"]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+
+[sub_resource type="Animation" id="Animation_2bbb3"]
+resource_name = "walk"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mj7op"]
+_data = {
+"RESET": SubResource("Animation_1aof2"),
+"aerial": SubResource("Animation_511nw"),
+"idle": SubResource("Animation_dejmn"),
+"walk": SubResource("Animation_2bbb3")
+}
+
+[sub_resource type="Curve" id="Curve_j8e5x"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_1x6m1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.825843, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Player" instance=ExtResource("1_ht62t")]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("2_otrhr")
+acceleration = 1.0
+ground_friction = 0.0
+air_friction = 0.0
+deaths = 0
+
+[node name="Camera2D" type="Camera2D" parent="." index="0"]
+limit_left = 0
+limit_top = 0
+limit_right = 1170
+limit_bottom = 324
+position_smoothing_enabled = true
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(0, -12)
+texture = ExtResource("3_47ip2")
+flip_h = true
+hframes = 9
+vframes = 3
+frame = 2
+
+[node name="CollisionShape2D" parent="." index="2"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_ytylj")
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_mj7op")
+}
+
+[node name="DashTimer" type="Timer" parent="." index="4"]
+
+[node name="DashParticles" type="CPUParticles2D" parent="." index="5"]
+position = Vector2(-8, -12)
+emitting = false
+amount = 50
+lifetime = 0.5
+randomness = 0.46
+draw_order = 1
+texture = ExtResource("4_swojd")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 40)
+gravity = Vector2(-2000, 0)
+linear_accel_max = 66.42
+linear_accel_curve = SubResource("Curve_j8e5x")
+scale_amount_min = 0.0
+scale_amount_max = 0.2
+scale_amount_curve = SubResource("Curve_1x6m1")
