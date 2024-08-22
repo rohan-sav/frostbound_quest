@@ -402,7 +402,7 @@ position = Vector2(479, 175)
 position = Vector2(1125, 164)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(565, -34)
+position = Vector2(565, -106)
 amount = 25
 emission_shape = 3
 emission_rect_extents = Vector2(500, 1)

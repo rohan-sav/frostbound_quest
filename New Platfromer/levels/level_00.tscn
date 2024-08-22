@@ -300,6 +300,8 @@ wait_time = 2.0
 one_shot = true
 
 [node name="CPUParticles2D" parent="." index="5"]
-scale_amount_max = 10.0
+position = Vector2(571, -99)
+amount = 500
+emission_rect_extents = Vector2(553, 1)
 
 [editable path="Player"]

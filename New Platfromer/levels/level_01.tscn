@@ -161,4 +161,9 @@ position = Vector2(424, 227)
 [node name="Door" parent="." index="4"]
 position = Vector2(1127, 162)
 
+[node name="CPUParticles2D" parent="." index="5"]
+position = Vector2(576, -102)
+amount = 500
+emission_rect_extents = Vector2(553, 1)
+
 [editable path="Player"]
