@@ -9,7 +9,7 @@ const DASH_SPEED = 2.5
 var dashing = false
  
 var can_double_jump := true
- 
+
  
 func _physics_process(delta: float) -> void:
 	# Status
@@ -43,6 +43,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = max_speed * DASH_SPEED * direction
 		else:
 			velocity.x = lerp(velocity.x, direction * max_speed, acceleration)
+			Walking.play_sfx()
 		if direction > 0:
 			$Sprite2D.flip_h = true
 			$DashParticles.gravity.x = -2000
@@ -52,8 +53,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		if is_on_floor():
 			velocity.x = lerp(velocity.x, 0.0, ground_friction)
+			Walking.play_sfx()
 		else:
 			velocity.x = lerp(velocity.x, 0.0, air_friction)
+			
  
 	# Animation
 	if is_on_floor():
@@ -65,6 +68,7 @@ func _physics_process(delta: float) -> void:
 		$AnimationPlayer.play("aerial")
  
 	move_and_slide()
+
 
  
 func die() -> void:

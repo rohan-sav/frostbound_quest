@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwopig24udwyg"]
+
+[ext_resource type="AudioStream" uid="uid://cvkdvmrtlfcau" path="res://GLOBAL/running-in-grass-6237.mp3" id="1_1xlvy"]
+[ext_resource type="Script" path="res://actors/walking.gd" id="2_32h3i"]
+
+[node name="walking" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_1xlvy")
+volume_db = 16.5
+parameters/looping = true
+script = ExtResource("2_32h3i")
