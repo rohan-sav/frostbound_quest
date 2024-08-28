@@ -12,6 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
+		TransitionScreen.transition()
+		await TransitionScreen.on_transition_finished
 		get_tree().change_scene_to_file("res://levels/level_00.tscn")
 
 

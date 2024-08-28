@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 AudioPlayer="*res://GLOBAL/audio_player.gd"
 Walking="*res://actors/walking.gd"
+TransitionScreen="*res://objects/transition_screen.tscn"
 
 [display]
 
