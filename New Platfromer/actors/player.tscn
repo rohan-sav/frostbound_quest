@@ -2,11 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://b0644auj3ootj" path="res://actors/actor.tscn" id="1_ht62t"]
 [ext_resource type="Script" path="res://actors/player.gd" id="2_otrhr"]
-[ext_resource type="Texture2D" uid="uid://df8me58ybr0qk" path="res://common/kenney_pixel-platformer/tilemaps/tilemap-characters_packed.png" id="3_47ip2"]
+[ext_resource type="Texture2D" uid="uid://duyenbimadue4" path="res://common/kenney_pixel-platformer/tilemaps/AnimationSheet.png" id="3_4qn0m"]
 [ext_resource type="Texture2D" uid="uid://cf5cqmng3nei3" path="res://common/kenney_pixel-platformer/tilemaps/circle-xxl.png" id="4_swojd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ytylj"]
-size = Vector2(18, 18)
+size = Vector2(18, 21)
 
 [sub_resource type="Animation" id="Animation_1aof2"]
 length = 0.001
@@ -36,7 +36,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [3]
+"values": [9]
 }
 
 [sub_resource type="Animation" id="Animation_dejmn"]
@@ -52,7 +52,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [2]
+"values": [4]
 }
 
 [sub_resource type="Animation" id="Animation_2bbb3"]
@@ -107,11 +107,12 @@ limit_bottom = 324
 position_smoothing_enabled = true
 
 [node name="Sprite2D" parent="." index="1"]
-position = Vector2(0, -12)
-texture = ExtResource("3_47ip2")
+position = Vector2(0, -11)
+scale = Vector2(1.04167, 1.04167)
+texture = ExtResource("3_4qn0m")
 flip_h = true
-hframes = 9
-vframes = 3
+hframes = 8
+vframes = 6
 frame = 2
 
 [node name="CollisionShape2D" parent="." index="2"]

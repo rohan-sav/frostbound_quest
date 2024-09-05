@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://objects/door.gd" id="2_ugi7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ey2bu"]
-size = Vector2(18, 23)
+size = Vector2(38, 38)
 
 [node name="Door" instance=ExtResource("1_nwwid")]
 collision_layer = 8
@@ -19,7 +19,7 @@ region_enabled = true
 region_rect = Rect2(180, 90, 18, 36)
 
 [node name="CollisionShape2D" parent="." index="2"]
-position = Vector2(0, -11.5)
+position = Vector2(-10, -19)
 shape = SubResource("RectangleShape2D_ey2bu")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

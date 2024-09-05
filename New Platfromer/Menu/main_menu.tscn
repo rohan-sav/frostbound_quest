@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://km8adfwg4ees"]
 
 [ext_resource type="Script" path="res://Menu/main_menu.gd" id="1_msky8"]
-[ext_resource type="Texture2D" uid="uid://cns8woo3777m0" path="res://common/kenney_pixel-platformer/tilemaps/1000_F_379946475_xJnxpdY2Yk9hNmPvuKL2h1iolWWGR8HE.jpg" id="2_kgld7"]
+[ext_resource type="Texture2D" uid="uid://0nejck0fwfmb" path="res://common/kenney_pixel-platformer/tilemaps/winter-scenery-background-free-vector.jpg" id="2_0k5vg"]
 [ext_resource type="FontFile" uid="uid://cywl48n402gnl" path="res://common/Heavitas.ttf" id="3_btkkg"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oy4rc"]
-texture = ExtResource("2_kgld7")
+texture = ExtResource("2_0k5vg")
 modulate_color = Color(0.60933, 0.60933, 0.60933, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lg4on"]
@@ -125,13 +125,13 @@ theme_override_constants/line_spacing = 0
 theme_override_constants/shadow_offset_x = 0
 theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("3_btkkg")
-theme_override_font_sizes/font_size = 28
+theme_override_font_sizes/font_size = 30
 text = "Frostbound Quest"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button3" to="." method="_on_exit_pressed"]

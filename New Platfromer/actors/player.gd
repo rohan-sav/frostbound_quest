@@ -45,11 +45,11 @@ func _physics_process(delta: float) -> void:
 			velocity.x = lerp(velocity.x, direction * max_speed, acceleration)
 			Walking.play_sfx()
 		if direction > 0:
-			$Sprite2D.flip_h = true
-			$DashParticles.gravity.x = -2000
-		elif direction < 0:
 			$Sprite2D.flip_h = false
-			$DashParticles.gravity.x = 2000
+			$DashParticles.gravity.x = -20
+		elif direction < 0:
+			$Sprite2D.flip_h = true
+			$DashParticles.gravity.x = 20
 	else:
 		if is_on_floor():
 			velocity.x = lerp(velocity.x, 0.0, ground_friction)
